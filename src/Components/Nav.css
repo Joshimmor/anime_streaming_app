@@ -1,0 +1,29 @@
+.navigationBar{
+    position: absolute;
+    right:0;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    color: white;
+    display: flex;
+    width:40vw;   
+}
+
+.navigationBar > .MuiSvgIcon-root {
+    font-size:20px;
+    margin-left: auto;
+    margin-right:auto;
+    opacity: 0.6;
+    cursor: pointer;
+}
+.navigationBar > .MuiSvgIcon-root:hover{
+    opacity: 1;
+}
+.searchForm{
+    padding-left:10px;
+    padding-top: 5px;
+}
+
+#filled-basic{
+    color:white;
+    font-size:small
+}

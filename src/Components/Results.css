@@ -1,0 +1,7 @@
+.resultCard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top:1vh;
+    height: 100%;
+}

@@ -1,0 +1,23 @@
+.videoCard{
+    padding: 10px;
+    color:white;
+}
+.videoCard > img {
+    width:200px;
+    transition: transform 150ms ease-in ;
+    cursor: pointer;
+}
+.videoCard > h2{
+    margin:0;
+    padding:0;
+    font-size: medium;
+   
+}
+.videoCard > p{
+    margin:0;
+    padding:0;
+    font-size: small
+}
+.videoCard >img:hover{
+    transform: scale(1.02);
+}
