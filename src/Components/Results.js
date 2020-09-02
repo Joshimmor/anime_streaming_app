@@ -6,9 +6,10 @@ import Loading from "./Loading";
 
 
 function Results ({navState}){
+    //Anime Titles State to be displayed 
     const [animes, setAnimes] = useState([])
 
-  //Fetching  
+  //Fetching Anime Titles 
  useEffect(() => {
         async function fetchData(){
         //
@@ -20,11 +21,7 @@ function Results ({navState}){
     fetchData();    
     }, [navState])
 
-        if(animes.length  < 1){
-            return(
-                <Loading/>
-            )
-        }
+    //Displaying Fetched Items 
     return(
         <div className="resultCard">
         {animes.map((anime)=>(

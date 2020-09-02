@@ -1,7 +1,7 @@
 import React from 'react';
 import "./VideoPlaceholder.css"
 
-
+//Mapped component to displayed fetched data
 export default function VideoPlaceholder({anime}) {
     return (
         <div key={anime.id} className="videoCard">

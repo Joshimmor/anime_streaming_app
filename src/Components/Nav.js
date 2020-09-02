@@ -6,7 +6,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import TextField from "@material-ui/core/TextField";
 import request from "../request"
 
-
+//SearchBar Component
 function SearchBar(props){
     function enterKey (e){
         if (e.keyCode === 13)  {
@@ -14,6 +14,7 @@ function SearchBar(props){
             props.selectionStatus(`${request.fetchSearch}?show_name=${e.target.value}`) ;
          }
      }
+
     return(
         <form onKeyDown={enterKey}>
             <TextField 
@@ -27,10 +28,12 @@ function SearchBar(props){
         </form>
     )
 }
-
-export default function Nav({selectionStatus}){  
+//saving the api request to the state saved in  APP.js
+    export default function Nav({selectionStatus}){  
+// state for toggling searchBar when the icon is clicked
     const [active,toggle] = useState(false)
-    
+
+    // navigation Bar which tells the api which data to grab
     return (
         <React.Fragment>
             <div className="navigationBar">
