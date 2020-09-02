@@ -1,3 +1,20 @@
+## This App
+this App was created out of necessity, this react app currently grabs data from a
+fake REST API that I am running on LocalHost:3001/
+## break down of components
+Three Main components:
+Results:
+Which display results of Axios api Get request
+Nav:
+Filters the Api Get request 
+AXIOS:
+Makes a call to my private JSON DB 
+
+## Waiting on
+Waiting on API to be set up by another person
+Will create WebScrapper if to much time passes
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
