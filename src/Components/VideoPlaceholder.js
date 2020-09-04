@@ -1,13 +1,36 @@
 import React from 'react';
-import "./VideoPlaceholder.css"
+import "./VideoPlaceholder.css";
+import {animated,useSpring} from "react-spring";
+
+
 
 //Mapped component to displayed fetched data
-export default function VideoPlaceholder({anime}) {
-    return (
-        <div key={anime.id} className="videoCard">
-            <img src={anime.poster} alt={anime.show_name}/>
-            <h2>{anime.show_name}</h2>
-    <p>Episodes: {anime.epsiodes}</p>
-        </div>
-    )
-}
+export default function VideoPlaceholder({anime,navState}) {
+        //animation
+        let delayNumber = Math.random(0,.2)*1000;
+        const Transitions = useSpring(
+                   { 
+                       from:{    
+                        opacity:0,
+                        transform : navState !== 'data' ? "transformX(-500px)":"scale(0.7)"
+                    },
+                    opacity:1,
+                    transform :  navState !== 'data' ? "transformX(0px)":"scale(1)",
+                    delay: delayNumber
+                    }
+        );
+        
+                    
+        
+            return (
+                  
+                        <animated.div style={Transitions} 
+                        key={anime.id} 
+                        className="videoCard">
+                            <img src={anime.poster} alt={anime.show_name}/>
+                            <h2>{anime.show_name}</h2>
+                            <p>Episodes: {anime.epsiodes}</p>
+                        </animated.div>
+                
+                )
+        }

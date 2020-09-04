@@ -6,6 +6,11 @@
     width:200px;
     transition: transform 150ms ease-in ;
     cursor: pointer;
+    border-radius: 2px;
+    background: #2B0101;
+    opacity: .83;
+    box-shadow:  27px 27px 35px #2701013b, 
+                 -27px -27px 35px #2f010146;
 }
 .videoCard > h2{
     margin:0;
@@ -19,5 +24,7 @@
     font-size: small
 }
 .videoCard >img:hover{
-    transform: scale(1.02);
+    transform: scale(1.04);
+    opacity: 1;
+   
 }
