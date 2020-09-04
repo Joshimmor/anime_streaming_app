@@ -5,6 +5,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import TextField from "@material-ui/core/TextField";
 import request from "../request";
+import {Link} from "react-router-dom";
 
 
 //SearchBar Component
@@ -46,7 +47,9 @@ function SearchBar(props){
     return (
         <React.Fragment>
             <div className="navigationBar">
-                <HomeIcon onClick={()=>selectionStatus(request.fetchHome)}/>
+                <Link to="/">
+                    <HomeIcon />
+                </Link>
                 <FavoriteIcon onClick={()=>selectionStatus(request.fetchFavorites)}/>
                 <SearchIcon onClick={()=>toggle(!active)}/>
             </div>
