@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import "./Nav.css"
 import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
@@ -30,7 +30,7 @@ function SearchBar(props){
              focused={props.active} 
              id="filled-basic"
              label="Search" 
-             color="secondary" 
+              
              variant="filled"
              onChange={(e)=> e.target.value !== "" ? props.selectionStatus(capsOn(e.target.value)) : props.selectionStatus(request.fetchHome)} 
              />
@@ -45,17 +45,17 @@ function SearchBar(props){
 
     // navigation Bar which tells the api which data to grab
     return (
-        <React.Fragment>
+        <div className="navBar">
             <div className="navigationBar">
-                <Link to="/">
+                <Link className="navibar" to="/">
                     <HomeIcon />
                 </Link>
                 <FavoriteIcon onClick={()=>selectionStatus(request.fetchFavorites)}/>
                 <SearchIcon onClick={()=>toggle(!active)}/>
             </div>
-            <SearchBar selectionStatus={selectionStatus} active={active}/>
+            <SearchBar className="searchBar" selectionStatus={selectionStatus} active={active}/>
 
-        </React.Fragment>
+        </div>
          )
     
 }

@@ -1,3 +1,11 @@
+.navBar{
+    position: fixed;
+    width: 100%;
+    background-color: #eeeae7f8;
+    z-index: 1;
+    box-shadow:  17px 17px 25px #27262513, 
+    -17px -17px 25px #18171528;
+}
 .navigationBar{
     position: absolute;
     right:0;
@@ -5,18 +13,25 @@
     padding-bottom: 15px;
     color: white;
     display: flex;
-    width:40vw;   
+    width:40vw;  
+    justify-content: space-around; 
 }
 
-.navigationBar > .MuiSvgIcon-root {
-    font-size:20px;
-    margin-left: auto;
-    margin-right:auto;
-    opacity: 0.6;
-    cursor: pointer;
+.navibar{
+    align-items: center;
 }
-.navigationBar > .MuiSvgIcon-root:hover{
+
+.MuiSvgIcon-root {
+   
+    opacity: 0.6;
+    
+   
+}
+ .MuiSvgIcon-root:hover{
     opacity: 1;
+}
+.searchBar{
+    padding-left:10px !important
 }
 .searchForm{
     padding-left:10px;
@@ -24,7 +39,22 @@
 }
 
 #filled-basic{
-    color:white;
-    font-size:small
+    color:rgb(231, 103, 18);
+    font-size:medium
 }
 
+.MuiFilledInput-underline:after {
+    border-bottom: 2px solid rgb(231, 103, 18) !important
+}
+.MuiFormLabel-root.Mui-focused {
+    color:rgb(231, 103, 18) !important
+}
+.MuiFilledInput-underline:before {
+    border-bottom:none !important
+}
+.MuiFilledInput-root{
+    background-color:#EFEAE7 !important 
+}
+.MuiFilledInput-root.Mui-focused {
+    background-color:#EFEAE7 !important 
+}

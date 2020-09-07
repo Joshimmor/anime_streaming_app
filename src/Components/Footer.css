@@ -1,0 +1,33 @@
+.footer{
+    position: fixed;
+    bottom:0;
+    width:100%;
+    background: linear-gradient(4deg, rgba(217,105,32,1) 0%, rgba(240,105,16,1) 54%, rgba(230,100,15,1) 100%);
+    display: inline;
+    text-align: center;
+    justify-content: space-around;
+    border-radius: 2px;
+    box-shadow:  17px 17px 25px #27262513, 
+    -17px -17px 25px #18171528;
+}
+.footer >ul> li{
+    list-style: none;
+    display: inline;
+    padding: 10px 15px;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+}
+.footer > ul{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    padding-top:10px;
+}
+@media only screen and (min-width: 786px){
+    .footer >ul> li{
+        padding-left:5%;
+        padding-right:5%;
+        }
+    
+    
+}

@@ -2,7 +2,8 @@ import React,{useState, useEffect}from 'react';
 import './App.css';
 import Nav from "./Components/Nav"
 import Results from "./Components/Results";
-import request from "./request"
+import request from "./request";
+import Footer  from "./Components/Footer";
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,12 +11,13 @@ import {
 } from "react-router-dom";
 import EpisodeCard from "./Components/EpisodeCard";
 import axios from "./axios";
+import MainSlider from "./Components/MainSlider";
 
 
 function App() {
       //saves state to be passed down as props to the API get request
       const [navState, selectionStatus] = useState(request.fetchHome);
-      //Anime Titles State to be displayed 
+      //Anime Titles /DATA State to be displayed 
       const [animes, setAnimes] = useState([])
       //setting Regex
       const regex = new RegExp("^"+navState, "g");
@@ -37,7 +39,10 @@ function App() {
         }, [navState,regex,animes])
     //State before render
       console.log(navState)
-      
+     //MainSlider Data State Selection
+     const [index, setIndex] = useState(0);
+      //Selectior Logged
+      console.log(index)
       //APP
       return (
         <Router>
@@ -45,10 +50,19 @@ function App() {
             <Nav selectionStatus={selectionStatus}/>
             <Switch> 
               <Route exact path="/">
-                <Results animes={animes}/>
+                <MainSlider anime={animes[index]}
+                setIndex={setIndex}
+                index={index}
+                navState={navState}/>
+                <Results animes={animes} />
               </Route>
-              <Route exact path="/home/:animeid" component={EpisodeCard}/>
-            </Switch>   
+              <Route exact path="/home/:animeid" 
+              render={(props)=><EpisodeCard {...props} 
+              anime={animes}
+                                            />}
+                             />
+            </Switch>  
+            <Footer/> 
           </div>
       </Router>
       );

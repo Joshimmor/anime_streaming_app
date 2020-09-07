@@ -1,0 +1,55 @@
+h1,h2, h3,h4,p{
+    color:rgb(231, 103, 18);
+    font-family: 'Roboto', sans-serif;
+  }
+.episodeImage{
+    padding-top: 20%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tagLine{
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center
+}
+.tagLine > h2 {
+   margin-bottom: 0;
+   
+}
+.tagLine > p {
+    margin-top: 0;
+   
+ }
+.episodeCard{
+    text-align: left
+}
+.arrowHead{
+    padding-top:35px;
+    margin-left: 40px;
+}
+@media only screen and (min-width: 786px){
+    .episodeImage{
+        padding-top: 10%;
+        
+     margin-left: 10vh;
+     }
+     .episodeCard{
+        text-align: left;
+    }
+    .tagLine > h2 {
+        margin-left: 10vh;
+     }
+     .tagLine > p {
+        margin-left: 10vh;
+      }
+     .arrowHead{
+        padding:15px;
+        margin-left:3vw;
+    }
+    .tagLine{
+        margin-left:0;
+        text-align: left
+    }
+}
+
