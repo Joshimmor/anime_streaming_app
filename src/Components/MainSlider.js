@@ -4,6 +4,8 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import "./MainSlider.css";
 import {Link} from "react-router-dom";
+import {Button} from '@material-ui/core';
+import EpisodeDisplay from "./EpisodeDisplay"
 
 export default function MainSlider({anime,setIndex,index,navState}) {
   //creating array of objects to animate
@@ -56,23 +58,22 @@ export default function MainSlider({anime,setIndex,index,navState}) {
      }
   return (
     <div className="container" >
-      
-             {posterTransition.map(({item, key, props}) => {
-                  return (
-                    <animated.div className="poster" style={props} key={key}>
-                  <Link key={anime.id} to={`/home/${anime.id}`}
+                    <animated.div className="poster"  key={anime.id}>
+                  <Link className="posterLink" key={anime.id} to={`/home/${anime.id}`}
                               params={anime}>
                         <img  src={anime.poster} alt={anime.show_name}/>
                   </Link>
-                        <h1>{anime.show_name}</h1>
+                  <Link  key={`btn${anime.id}`} to={`/home/${anime.id}`}params={anime}> 
+                        <Button  className="watchButton" size="large" disableElevation>
+                             Watch {anime.show_name}
+                       </Button>
+                  </Link>
              </animated.div>
-                  )
-                 }
-             )};
-            <div className="buttons">
-                <ArrowBackIosIcon className="back" onClick={()=> backwards(index,setIndex)}/> 
-                <ArrowForwardIosIcon className="forward" onClick={()=>forward(index,setIndex)}/>
-            </div>
+             <animated.div className="epsiodeDisplay">
+                <EpisodeDisplay
+                className="tabPanel"/>
+             </animated.div>
+            
     </div>
   
   )

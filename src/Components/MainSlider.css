@@ -1,21 +1,32 @@
-
+.MuiButton-textSizeLarge{
+    width: 100%;
+    color:white
+}
+.MuiButton-label {
+    color: white;
+    font-weight: bold;
+}
 .container{
     justify-content: center;
+    display: flex;
+    flex-direction: row;
 }
 .poster{
     padding-top:20%;
-    justify-content: center;
-    text-align: center;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    
 }
-.poster > h1{
-   padding:0;
-   margin: 0;
-    top:80%;
-  
+.posterLink> img{
+  width: 100%;
+}
+
+.MuiButton-textSizeLarge{
+   margin-top: 2px !important;
 }
 .buttons{
     text-align: center;
-    justify-content: space-between;
     font-weight: bolder;
 }
 .forward{
@@ -28,17 +39,41 @@ h1,h2, h3,h4,p{
     color:rgb(231, 103, 18);
     font-family: 'Roboto', sans-serif;
   }
+  .epsiodeDisplay{
+      display: none
+  }
 
   @media only screen and (min-width: 786px){
     .poster{
         padding-top:10%;
-        justify-content: left;
-        text-align: left;
+       
         padding-left:10vw;
     }
     .poster > h1{
         padding-left:10px;
-       
+        
        
      }
+     .poster{
+         width:30%
+     }  
+     .epsiodeDisplay{
+         width: 70%;
+         display: inline;
+     }
+     .makeStyles-root-1{
+         margin-top: 16%;
+         margin-right: 10%;
+         margin-left: 5px;
+         
+     }
+     .MuiTab-root{
+        flex:1;
+        max-width: none !important;
+
+     }
   }
+
+.MuiButtonBase-root{
+    background-color: rgb(231, 103, 18) !important
+}
