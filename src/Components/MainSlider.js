@@ -1,7 +1,6 @@
-import React,{useState, useEffect} from 'react';
-import {useTransition, animated} from "react-spring";
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import React from 'react';
+import { animated } from "react-spring";
+
 import "./MainSlider.css";
 import {Link} from "react-router-dom";
 import {Button} from '@material-ui/core';
@@ -9,6 +8,8 @@ import EpisodeDisplay from "./EpisodeDisplay"
 
 export default function MainSlider({anime,setIndex,index,navState}) {
   //creating array of objects to animate
+
+/*
  const animeList = {
 
       animes: [anime]
@@ -27,7 +28,7 @@ export default function MainSlider({anime,setIndex,index,navState}) {
                 opacity:0,
                 transform: "translateX(500px)"
               }
-      });
+      })
 //foward button function
     function forward(index,setIndex) {
       if(index === 4){
@@ -46,7 +47,7 @@ export default function MainSlider({anime,setIndex,index,navState}) {
       }
     };
     
-
+*/
     if(anime == null){
             return(
                 <React.Fragment></React.Fragment>
