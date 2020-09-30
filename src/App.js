@@ -19,26 +19,28 @@ function App() {
       const [navState, selectionStatus] = useState(request.fetchHome);
       //Anime Titles /DATA State to be displayed 
       const [animes, setAnimes] = useState([])
-      //setting Regex
-      const regex = new RegExp("^"+navState, "g");
+      //axios request
+      async function fetchData(requestType){
+          const response = await axios.get(requestType);
+          return response.data     
+      }
+    //homePage
+   
     //Fetching Anime Titles 
-      useEffect(() => {
-            async function fetchData(){
-            const response = await axios.get(request.fetchHome);
-            setAnimes(response.data)
-            if(navState!=="data"){
-                let filteredAnimes = animes.filter((anime) =>{
-                    return anime.show_name.match(regex)
-                })
-                setAnimes(filteredAnimes)
-            }else{
-                setAnimes(response.data)
-            }
-            }
-        fetchData();    
-        }, [navState,regex,animes])
+     
+     async function homePage (request){
+        let data = await fetchData(request.fetchHome);
+        if(data!== null){
+           let upAndComing = data.top.filter(anime => anime.rank <= 16)
+            setAnimes(upAndComing)
+          }
+        };
+
+       homePage(request);
+      
+       
     //State before render
-      console.log(navState)
+      console.log(animes)
      //MainSlider Data State Selection
      const [index, setIndex] = useState(0);
       //Selectior Logged

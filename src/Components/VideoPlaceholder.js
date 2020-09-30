@@ -27,9 +27,9 @@ export default function VideoPlaceholder({anime,navState}) {
                         <animated.div style={Transitions} 
                         key={anime.id} 
                         className="videoCard">
-                            <img src={anime.poster} alt={anime.show_name}/>
-                            <h2>{anime.show_name}</h2>
-                            <p>Episodes: {anime.epsiodes}</p>
+                            <img src={anime.image_url} alt={anime.title}/>
+                            <h2>{anime.title}</h2>
+                            <p>Episodes: {anime.episodes}</p>
                         </animated.div>
                 
                 )

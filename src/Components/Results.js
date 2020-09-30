@@ -17,8 +17,8 @@ function Results ({animes}){
                 <div className="resultCard">
                         
                    {
-                        animes.slice(0,12).map((anime)=>(
-                        <Link key={anime.id} to={`/home/${anime.id}`}
+                        animes.map((anime)=>(
+                        <Link key={anime.mal_id} to={`/home/${anime.mal_id}`}
                         params={anime}>
                         <VideoPlaceholder
                         anime={anime}
