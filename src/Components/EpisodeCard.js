@@ -38,7 +38,7 @@ export default function EpisodeCard(props) {
         setPageData(pL)
         },[props,setPageData])
         console.log(pageData)
-    if(pageData == null){ return(<React.Fragment></React.Fragment>)}
+    //if(pageData == null){ return(<React.Fragment></React.Fragment>)}
     return (
         <div className="episodeCard">
             <animated.span  style={fade}>
