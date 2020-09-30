@@ -34,7 +34,7 @@ export default function EpisodeCard(props) {
     
     
     useEffect(()=> {
-        const pL = props.anime.filter((n) => n.id === props.match.params.animeid)[0]
+        const pL = props.anime.filter((n) => n.mal_id === props.match.params.mal_id)[0]
         setPageData(pL)
         },[props,setPageData])
         console.log(pageData)
@@ -46,10 +46,10 @@ export default function EpisodeCard(props) {
                 <ArrowBackIcon  fontSize="large"/>
                 </Link>
             </animated.span>
-            <animated.img style={left} className="episodeImage" src={pageData.poster} alt="anime"/>
+            <animated.img style={left} className="episodeImage" src={pageData.image_url} alt="anime"/>
             <animated.div className="tagLine" style={bottom}>
-                 <h2>{pageData.show_name}</h2>
-                <p>{`Episodes ${pageData.epsiodes}`}</p>
+                 <h2>{pageData.title}</h2>
+                <p>{`Episodes ${pageData.episodes}`}</p>
              </animated.div> 
             {/*Mapp through the Videos slice 0,15  */}
         </div>
