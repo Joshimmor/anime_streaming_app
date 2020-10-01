@@ -36,8 +36,8 @@ export default function EpisodeCard(props) {
     useEffect(()=> {
         async function renderPage (props,setPageData){
             if(props){
-                console.log(props.match.params)
-                const pL = await props.match.anime.filter((n) => n.mal_id === props.match.params.animeid)[0];
+                console.log(props.anime)
+                const pL = await props.anime.filter((n) => n.mal_id === props.match.params.animeid)[0];
                 console.log(pL)
                 setPageData(pL);
                 }else{
