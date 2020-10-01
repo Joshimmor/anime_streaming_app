@@ -34,11 +34,20 @@ export default function EpisodeCard(props) {
     
     
     useEffect(()=> {
-        const pL = props.anime.filter((n) => n.mal_id === props.match.params.mal_id)[0]
-        setPageData(pL)
+        async function renderPage (props,setPageData){
+            if(props){
+                console.log(props.match.params)
+                const pL = await props.match.anime.filter((n) => n.mal_id === props.match.params.animeid)[0];
+                console.log(pL)
+                setPageData(pL);
+                }else{
+                console.log('No data')
+                }
+            }
+            renderPage(props,setPageData);
         },[props,setPageData])
         console.log(pageData)
-    //if(pageData == null){ return(<React.Fragment></React.Fragment>)}
+    if(pageData == null){ return(<React.Fragment></React.Fragment>)}
     return (
         <div className="episodeCard">
             <animated.span  style={fade}>
