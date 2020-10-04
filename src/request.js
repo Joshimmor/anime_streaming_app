@@ -2,6 +2,7 @@
 
 export default {
     fetchSearch: "search/anime?q=",
-    fetchHome: "top/anime/1/upcoming",
+    fetchHome: "data",
+    //fetchHome: "top/anime/1/upcoming",
     fetchFavorites: "data",
 }

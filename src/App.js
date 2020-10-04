@@ -21,11 +21,33 @@ function App() {
       const [animes, setAnimes] = useState([])
       //axios request
       async function fetchData(requestType){
-          const response = await axios.get(requestType);
-          return response.data     
+        try {
+              const response = await axios.get(requestType);
+              return response.data  
+            }   
+        catch (error) {
+              console.log(error.message) //{config:{...}}
+        
+            }
       }
     //homePage
-   
+   /*
+    async function mockServer(){
+      try   {
+              let payLoad = await fetch("http://192.168.1.197:3001/data");
+              payLoad = await payLoad.json()
+              if(payLoad!== null){
+                console.log(payLoad)
+                const upAndComing = payLoad.top.filter(anime => anime.rank <= 16)
+                setAnimes(upAndComing)
+                console.log(animes)}
+            }
+      catch(error){
+                console.error(error)
+            }     
+
+    }
+    */
     //Fetching Anime Titles 
      
      async function homePage (request){
@@ -33,11 +55,12 @@ function App() {
         if(data!== null){
            let upAndComing = data.top.filter(anime => anime.rank <= 16)
             setAnimes(upAndComing)
+            console.log(animes)
           }
         };
 
-       homePage(request);
-      
+       homePage(request);]
+      //mockServer()
        
     //State before render
       console.log(animes)

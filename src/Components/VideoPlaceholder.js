@@ -28,8 +28,7 @@ export default function VideoPlaceholder({anime,navState}) {
                         key={anime.id} 
                         className="videoCard">
                             <img src={anime.image_url} alt={anime.title}/>
-                            <h2>{anime.title}</h2>
-                            <p>Episodes: {anime.episodes}</p>
+                            
                         </animated.div>
                 
                 )
