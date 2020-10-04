@@ -51,7 +51,7 @@ function App() {
     //Fetching Anime Titles 
      
      async function homePage (request){
-        let data = await fetchData(request.fetchHome);
+        const data = await fetchData(request.fetchHome);
         if(data!== null){
            let upAndComing = data.top.filter(anime => anime.rank <= 16)
             setAnimes(upAndComing)
