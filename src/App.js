@@ -59,7 +59,7 @@ function App() {
           }
         };
 
-       homePage(request);]
+       homePage(request);
       //mockServer()
        
     //State before render
