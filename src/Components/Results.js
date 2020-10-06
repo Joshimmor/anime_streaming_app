@@ -6,8 +6,9 @@ import {Link} from "react-router-dom";
 
 
 function Results ({animes}){
-            animes = animes.filter(anime => anime.rank < 1)
-            if(animes === null){
+            const results = animes.filter(anime => anime.rank > 1)
+            console.log(results)
+            if(results === null){
                 return(
                     <React.Fragment></React.Fragment>
                 )
@@ -17,7 +18,7 @@ function Results ({animes}){
                 <div className="resultCard">
                         
                    {
-                        animes.map((anime)=>(
+                        results.map((anime)=>(
                         <Link key={anime.mal_id} to={`/home/${anime.mal_id}`}
                         params={anime}>
                         <VideoPlaceholder
