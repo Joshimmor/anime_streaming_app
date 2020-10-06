@@ -16,7 +16,7 @@ import MainSlider from "./Components/MainSlider";
 
 function App() {
       //saves state to be passed down as props to the API get request
-      const [navState, selectionStatus] = useState(null);
+      const [navState, selectionStatus] = useState("");
       //Anime Titles /DATA State to be displayed 
       const [animes, setAnimes] = useState([])
       //axios request

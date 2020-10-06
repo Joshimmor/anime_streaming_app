@@ -16,7 +16,7 @@ export default function MainSlider({anime, navState}) {
                 <React.Fragment></React.Fragment>
             )
         }
-    if(navState !== null){
+    if(navState.length() >= 3){
       console.log(navState);
       async function fetchData(requestType){
         try {
