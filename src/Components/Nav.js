@@ -32,7 +32,7 @@ function SearchBar(props){
              label="Search" 
               
              variant="filled"
-             onChange={(e)=> e.target.value !== "" ? props.selectionStatus(capsOn(e.target.value)) : props.selectionStatus(request.fetchHome)} 
+             onChange={(e)=> e.target.value !== "" ? props.selectionStatus(capsOn(e.target.value)) : props.selectionStatus(null)} 
              />
              
         </form>

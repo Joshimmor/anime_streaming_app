@@ -1,4 +1,4 @@
-import React,{useState}from 'react';
+import React,{useState,useEffect }from 'react';
 import './App.css';
 import Nav from "./Components/Nav"
 import Results from "./Components/Results";
@@ -16,7 +16,7 @@ import MainSlider from "./Components/MainSlider";
 
 function App() {
       //saves state to be passed down as props to the API get request
-      const [navState, selectionStatus] = useState(request.fetchHome);
+      const [navState, selectionStatus] = useState(null);
       //Anime Titles /DATA State to be displayed 
       const [animes, setAnimes] = useState([])
       //axios request
@@ -59,24 +59,35 @@ function App() {
           }
         };
 
-       homePage(request);
+      homePage(request);
       //mockServer()
        
     //State before render
       console.log(animes)
      //MainSlider Data State Selection
-     const [index, setIndex] = useState(0);
+     const [index, setIndex] = useState(1);
       //Selectior Logged
-      console.log(index)
-      //APP
+    useEffect(()=>{
+      
+       let interval = setInterval(() => {
+            if(index < 5){
+              console.log('hello')
+                setIndex(index => index + 1)
+          }else{
+            setIndex(1)
+          }
+          }, 10000);
+          return () => {clearInterval(interval)}
+    },[index])
+      
+      //APP in home mode 
       return (
         <Router>
           <div className="App">
             <Nav selectionStatus={selectionStatus}/>
             <Switch> 
               <Route exact path="/">
-                <MainSlider anime={animes[index]}
-                setIndex={setIndex}
+                <MainSlider anime={animes.filter(anime => anime.rank === index)[0]}
                 index={index}
                 navState={navState}/>
                 <Results animes={animes} />

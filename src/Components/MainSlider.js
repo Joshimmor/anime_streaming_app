@@ -5,68 +5,57 @@ import "./MainSlider.css";
 import {Link} from "react-router-dom";
 import {Button} from '@material-ui/core';
 import EpisodeDisplay from "./EpisodeDisplay"
+import axios from "../axios";
+import request from "../request";
+import searchResults from './searchResults';
 
-export default function MainSlider({anime,setIndex,index,navState}) {
-  //creating array of objects to animate
-
-/*
- const animeList = {
-
-      animes: [anime]
- }
-//useTranssition hook animations
- const posterTransition = useTransition(animeList.animes , null,{
-              from:{
-                opacity:0,
-                transform: "translateX(-500px)"
-              },
-              enter:{
-                opacity:1,
-                transform: "translateX(0)"
-              },
-              leave:{
-                opacity:0,
-                transform: "translateX(500px)"
-              }
-      })
-//foward button function
-    function forward(index,setIndex) {
-      if(index === 4){
-        setIndex(0)
-      }else{
-        setIndex(index + 1)
-      }
-    };
-
-    //backwards button function
-    function backwards(index,setIndex) {
-      if(index === 0){
-        setIndex(4)
-      }else{
-        setIndex(index - 1)
-      }
-    };
-    
-*/
+export default function MainSlider({anime, navState}) {
+  
     if(anime == null){
             return(
                 <React.Fragment></React.Fragment>
             )
-        }else if(navState !== "data"){
-          return(
-            <React.Fragment></React.Fragment>
-               )
-     }
+        }
+    if(navState !== null){
+      console.log(navState);
+      async function fetchData(requestType){
+        try {
+              const response = await axios.get(requestType);
+              const search = response.data.results[0];
+              return search
+            }   
+        catch (error) {
+              console.log(error.message) //{config:{...}}
+        
+            }
+      }
+     const searchData = fetchData(request.fetchSearch + navState);
+     return (
+      <div className="container" >
+                      <animated.div className="poster"  key={searchData.mal_id}>
+                    <Link className="posterLink" key={searchData.mal_id} to={`/home/${searchData.mal_id}`}
+                                params={searchData}>
+                          <searchResults  props={searchData}/>
+                    </Link>
+                    
+               </animated.div>
+              
+      </div>
+    
+    )
+    }
+
+console.log(anime)
   return (
     <div className="container" >
-                    <animated.div className="poster"  key={anime.id}>
-                  <Link className="posterLink" key={anime.id} to={`/home/${anime.id}`}
+                    <animated.div className="poster"  key={anime.mal_id}>
+                  <Link className="posterLink" key={anime.mal_id} to={`/home/${anime.mal_id}`}
                               params={anime}>
-                        <img  src={anime.poster} alt={anime.show_name}/>
+                        <img  src={anime.image_url} alt={anime.title}/>
                   </Link>
-                  <Link  key={`btn${anime.id}`} to={`/home/${anime.id}`}params={anime}> 
+                  <Link  key={`btn${anime.mal_id}`} to={`/home/${anime.mal_id}`}params={anime}> 
                         <Button  className="watchButton" size="large" disableElevation>
-                             Watch {anime.show_name}
+                             Watch {anime.title}
                        </Button>
                   </Link>
              </animated.div>
