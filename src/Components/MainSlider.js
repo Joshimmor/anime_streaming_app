@@ -30,6 +30,7 @@ export default function MainSlider({anime, navState}) {
             }
       }
      const searchData = fetchData(request.fetchSearch + navState);
+     console.log(searchData);
      return (
       <div className="container" >
                       <animated.div className="poster"  key={searchData.mal_id}>
