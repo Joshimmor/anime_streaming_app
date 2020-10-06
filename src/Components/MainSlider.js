@@ -21,7 +21,9 @@ export default function MainSlider({anime, navState}) {
       async function fetchData(requestType){
         try {
               const response = await axios.get(requestType);
+              console.log(response)
               const search = await response.data.results[0];
+              console.log(search)
               return search
             }   
         catch (error) {
