@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 
 
 function Results ({animes}){
-            
+            animes = animes.filter(anime => anime.rank < 1)
             if(animes === null){
                 return(
                     <React.Fragment></React.Fragment>

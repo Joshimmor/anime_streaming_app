@@ -1,4 +1,4 @@
-import React,{useState,useEffect }from 'react';
+import React,{useState}from 'react';
 import './App.css';
 import Nav from "./Components/Nav"
 import Results from "./Components/Results";
@@ -53,7 +53,7 @@ function App() {
      async function homePage (request){
         const data = await fetchData(request.fetchHome);
         if(data!== null){
-           let upAndComing = data.top.filter(anime => anime.rank <= 16)
+           let upAndComing = data.top.filter(anime => anime.rank <= 17)
             setAnimes(upAndComing)
             console.log(animes)
           }
@@ -65,8 +65,9 @@ function App() {
     //State before render
       console.log(animes)
      //MainSlider Data State Selection
-     const [index, setIndex] = useState(1);
+     //const [index, setIndex] = useState(1);
       //Selectior Logged
+    /* slider functionality  
     useEffect(()=>{
       
        let interval = setInterval(() => {
@@ -79,7 +80,7 @@ function App() {
           }, 10000);
           return () => {clearInterval(interval)}
     },[index])
-      
+    */
       //APP in home mode 
       return (
         <Router>
@@ -87,8 +88,7 @@ function App() {
             <Nav selectionStatus={selectionStatus}/>
             <Switch> 
               <Route exact path="/">
-                <MainSlider anime={animes.filter(anime => anime.rank === index)[0]}
-                index={index}
+                <MainSlider anime={animes.filter(anime => anime.rank === 1)[0]}
                 navState={navState}/>
                 <Results animes={animes} />
               </Route>
