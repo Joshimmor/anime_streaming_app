@@ -31,7 +31,7 @@ export default function MainSlider({anime, navState}) {
         
             }
       }
-     const searchData = async() => await fetchData(request.fetchSearch + navState);
+     const searchData = fetchData(request.fetchSearch + navState);
      console.log(searchData);
      return (
       <div className="container" >
